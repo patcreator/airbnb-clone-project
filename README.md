@@ -74,5 +74,68 @@ GraphQL: Offers a flexible and efficient query mechanism for interacting with th
 8. Database Optimizations
 Indexing: Implement indexes for fast retrieval of frequently accessed data.
 Caching: Use caching strategies to reduce database load and improve performance.
-  
- 
+ ##  API Security
+Security is a **core priority** of this project to ensure user trust, protect sensitive data, and maintain platform integrity.  
+### Key Security Measures
+
+1. **Authentication**
+   - Implemented via **NextAuth.js** and **JWT tokens** for secure session handling.
+   - Ensures only registered and verified users can access restricted features.
+
+   **Why it’s crucial:**  
+   Prevents unauthorized access to user data, bookings, and payment information.
+
+2. **Authorization**
+   - Role-based access control (e.g., admin, host, guest).
+   - Restricts critical actions like property deletion or booking management to authorized users only.
+
+   **Why it’s crucial:**  
+   Protects resources from malicious or accidental misuse and ensures data integrity.
+
+3. **Rate Limiting & Throttling**
+   - Limits the number of API requests per IP or user within a specific time frame.
+   - Helps mitigate brute-force attacks and API abuse.
+
+   **Why it’s crucial:**  
+   Prevents service overloads and protects against denial-of-service (DoS) attacks.
+
+4. **Data Encryption**
+   - All sensitive data (e.g., passwords, payment details) is encrypted using industry standards (bcrypt, TLS).
+   - Environment variables are securely managed via `.env` files.
+
+   **Why it’s crucial:**  
+   Ensures sensitive data remains protected in transit and at rest.
+
+5. **Input Validation & Sanitization**
+   - All API endpoints validate user input to prevent SQL injection and XSS attacks.
+
+   **Why it’s crucial:**  
+   Keeps the application safe from data corruption and malicious payloads.
+
+6. **Secure Payments**
+   - Payments processed through trusted gateways (e.g., Stripe or PayPal).
+   - No credit card data is stored on our servers.
+
+   **Why it’s crucial:**  
+   Maintains compliance with PCI-DSS and ensures safe user transactions.
+
+ ##  CI/CD Pipeline
+
+Continuous Integration (CI) and Continuous Deployment (CD) are automated workflows that ensure consistent, reliable, and rapid development and delivery of the application.
+
+### What is CI/CD?
+- **Continuous Integration (CI):** Automatically builds and tests code changes whenever developers push updates to the repository.
+- **Continuous Deployment (CD):** Automatically deploys tested and verified code to the production or staging environment.
+
+### Why it’s Important
+-  **Improves code quality:** Every commit is tested automatically to detect bugs early.  
+-  **Faster deployments:** Automates build and deployment steps, reducing manual effort.  
+-  **Consistent environments:** Ensures production mirrors development using containers or configuration files.  
+-  **Enhanced reliability:** Automated tests and deployment checks reduce human error.  
+
+### Tools Used
+- **GitHub Actions** – Automates build, test, and deploy workflows directly from GitHub.  
+- **Docker** – Creates consistent environments using containerized services.  
+- **Vercel / Render** – Handles automatic deployments when changes are pushed to the main branch.  
+- **Jest / Cypress** – Used for unit and end-to-end testing during the CI phase.
+
