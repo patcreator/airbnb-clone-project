@@ -18,3 +18,43 @@ Software developer (Backend Developer)
 - Redis: Used for caching and session management.
 - Docker: Containerization tool for consistent development and deployment environments.
 - CI/CD Pipelines: Automated pipelines for testing and deploying code changes.
+# Database Design
+- Users
+  - Id
+  - Username
+  - Email
+  - Password
+- Properties
+  - Id
+  - Name
+  - Description
+  - Location
+  - Price
+  - Status
+- Bookings
+   - Id
+   - User
+   - Property
+   - Start Date/Time
+   - End Date/Time
+   - Status
+- Reviews
+  - Id
+  - user
+  - Starts
+  - Comment
+  - Attachment
+- Payments
+  - Id
+  - Booking
+  - Payment method
+  - Paid Amount
+  - Status
+  - Type of Payment
+## Relationship
+  User -> Booking (1 - M)
+  User -> review (1 - M)
+  Payment -> booking (1-M)
+  Properties -> booking (M-1)
+  
+ 
